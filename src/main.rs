@@ -9,12 +9,12 @@ fn index2() -> impl Responder {
 }
 fn main() {
       HttpServer::new(|| {
-                  App::new()
-                              .route("/", web::post().to(index))
-                                          .route("/again", web::post().to(index2))
-                                              })
-          .bind("127.0.0.1:8088")
-                .unwrap()
-                    .run()
-                        .unwrap();
+            App::new()
+                  .route("/", web::post().to(index))
+                  .route("/again", web::post().to(index2))
+      })
+      .bind("127.0.0.1:8088")
+      .unwrap()
+      .run()
+      .unwrap();
 }
