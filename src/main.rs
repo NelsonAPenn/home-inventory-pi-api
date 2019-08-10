@@ -7,14 +7,15 @@ fn index() -> impl Responder {
 fn index2() -> impl Responder {
       HttpResponse::Ok().body("Hello world again!")
 }
+
 fn main() {
       HttpServer::new(|| {
             App::new()
-                  .route("/", web::post().to(index))
-                  .route("/again", web::post().to(index2))
+                  .route("/", web::get().to(index))
+                  .route("/again", web::get().to(index2))
       })
       .bind("127.0.0.1:8088")
-      .unwrap()
+      .expect("Failure to bind to port 8888")
       .run()
       .unwrap();
 }
