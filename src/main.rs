@@ -15,6 +15,7 @@ fn index() -> impl Responder {
 fn index2() -> impl Responder {
   HttpResponse::Ok().body("Hello world again!")
 }
+
 fn main() {
   // Direct connection to a server. Will not look for other servers in the topology.
   let client = Client::connect("localhost", 27017)
